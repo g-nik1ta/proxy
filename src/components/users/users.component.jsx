@@ -8,7 +8,6 @@ import { useUsers } from '../../hooks/useUsers';
 
 export const Users = () => {
     const [users, setUsers] = useState([]);
-    // const [search, setSearch] = useState('');
     const [filter, setFilter] = useState({ sort: '', query: '' });
 
     const [fetchUsers, isUsersLoading, usersError] = useFetching(async () => {
@@ -23,18 +22,18 @@ export const Users = () => {
     const sortedSearchUsers = useUsers(users, filter.sort, filter.query);
 
     const options = [
-        { value: 'asc', name: 'По возрастанию' },
-        { value: 'desc', name: 'По убыванию' },
+        { value: 'asc', name: 'Ascending' },
+        { value: 'desc', name: 'Descending' },
     ]
 
     return (
         <div className='container'>
             <Helmet>
-                <title>users seo title!</title>
-                <meta name='description' content='users seo description' />
+                <title>User Page title</title>
+                <meta name='description' content='User Page description' />
             </Helmet>
             <label className="label" htmlFor="search">
-                Поиск
+                Search
             </label>
             <input
                 className="input"
@@ -42,14 +41,14 @@ export const Users = () => {
                 id='search'
                 value={filter.query}
                 onChange={(e) => setFilter({ ...filter, query: e.target.value })}
-                placeholder='Поиск...'
+                placeholder='Search...'
             />
             <select
                 className="select"
                 value={filter.sort}
                 onChange={event => setFilter({ ...filter, sort: event.target.value })}
             >
-                <option disabled value="">Соритировка по</option>
+                <option disabled value="">Sort by</option>
                 {options.map(option =>
                     <option key={option.value} value={option.value}>
                         {option.name}
@@ -57,7 +56,7 @@ export const Users = () => {
                 )}
             </select>
             {usersError &&
-                <h1>Произошла ошибка!</h1>
+                <h1>An error has occurred!</h1>
             }
             {
                 isUsersLoading
@@ -68,7 +67,7 @@ export const Users = () => {
                     :
                     <div className="user-list">
                         <h1 style={{ textAlign: 'center' }}>
-                            Список пользователей
+                            A list of users
                         </h1>
                         {sortedSearchUsers.map((user) =>
                             <div className="user-card">
@@ -80,11 +79,10 @@ export const Users = () => {
                                 </div>
                                 <div className="user-links">
                                     <Link className="link" to={`/user/post/${user.id}`} exact={true}>
-                                        Открыть список постов
+                                        Open list of posts
                                     </Link>
-                                    <br />
                                     <Link className="link" to={`/user/albums/${user.id}`} exact={true}>
-                                        Открыть список альбомов
+                                        Open album list
                                     </Link>
                                 </div>
                             </div>

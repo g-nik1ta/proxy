@@ -13,8 +13,8 @@ export const App = () => {
     return (
         <HelmetProvider context={helmetContext}>
             <Helmet>
-                <title>React App</title>
-                <meta name='description' content='Web site created using create-react-app' />
+                <title>Common seo title</title>
+                <meta name='description' content='Common seo description' />
             </Helmet>
             <div className='ui-app'>
                 {/* navigation */}

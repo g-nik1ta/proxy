@@ -21,14 +21,14 @@ export const Posts = () => {
     return (
         <div className='ui-post'>
             <Helmet>
-                <title>Post seo title!</title>
+                <title>Post seo title</title>
                 <meta name='description' content='Post seo description' />
             </Helmet>
             {postsError &&
-                <h1 className="error-message">Произошла ошибка!</h1>
+                <h1 className="error-message">An error has occurred!</h1>
             }
             <div>
-                <h1>Вы открыли страницу постов пользователя с ID {id}</h1>
+                <h1>You have opened the post page of the user with ID {id}</h1>
                 {
                     isPostsLoading
                         ?

@@ -19,27 +19,27 @@ export const Albums = () => {
     }, [])
 
     return (
-        <div className='ui-post'>
+        <div className='ui-album'>
             <Helmet>
-                <title>Post seo title!</title>
-                <meta name='description' content='Post seo description' />
+                <title>Album seo title!</title>
+                <meta name='description' content='Album seo description' />
             </Helmet>
             {albumsError &&
-                <h1 className="error-message">Произошла ошибка!</h1>
+                <h1 className="error-message">An error has occurred!</h1>
             }
             <div>
-                <h1>Вы открыли страницу альбомов пользователя с ID {id}</h1>
+                <h1>You have opened the albums page of the user with ID {id}</h1>
                 {
                     isAlbumsLoading
                         ?
                         <MyLoader />
                         :
-                        <div>
+                        <div className='post-list'>
                             {albums.map((album) =>
                                 <div className="post">
                                     <div className="post__content">
-                                        <strong className="post-title">{album.id}.</strong>
-                                        <div className="post-body">{album.title}</div>
+                                        <strong className="post-title">{album.id}. {album.title}</strong>
+                                        {/* <div className="post-body"></div> */}
                                     </div>
                                 </div>
                             )}
