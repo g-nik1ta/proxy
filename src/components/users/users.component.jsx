@@ -5,7 +5,7 @@ export const Users = () => {
     return (
         <div>
             <Helmet>
-                <title>users 1 seo title!</title>
+                <title>users seo title!</title>
                 <meta name='description' content='users seo description' />
             </Helmet>
             users
