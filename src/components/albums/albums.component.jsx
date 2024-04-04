@@ -5,17 +5,17 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import PostService from '../../API/PostService';
 import { useFetching } from '../../hooks/useFetching';
 
-export const Posts = () => {
+export const Albums = () => {
     const { id } = useParams();
-    const [posts, setPosts] = useState([]);
+    const [albums, setAlbums] = useState([]);
 
-    const [fetchUserPost, isPostsLoading, postsError] = useFetching(async () => {
-        const response = await PostService.getUserPosts(id);
-        setPosts(response.data);
+    const [fetchUserAlbum, isAlbumsLoading, albumsError] = useFetching(async () => {
+        const response = await PostService.getUserAlbums(id);
+        setAlbums(response.data);
     })
 
     useEffect(() => {
-        fetchUserPost()
+        fetchUserAlbum()
     }, [])
 
     return (
@@ -24,23 +24,23 @@ export const Posts = () => {
                 <title>Post seo title!</title>
                 <meta name='description' content='Post seo description' />
             </Helmet>
-            {postsError &&
+            {albumsError &&
                 <h1>Произошла ошибка!</h1>
             }
             <div>
-                <h1>Вы открыли страницу постов пользователя с ID {id}</h1>
+                <h1>Вы открыли страницу альбомов пользователя с ID {id}</h1>
                 {
-                    isPostsLoading
+                    isAlbumsLoading
                         ?
                         <MyLoader />
                         :
                         <div>
-                            {posts.map((post) =>
+                            {albums.map((album) =>
                                 <div className="post">
                                     <div className="post__content">
-                                        <strong>{post.id}. {post.title}</strong>
+                                        <strong>{album.id}.</strong>
                                         <div>
-                                            {post.body}
+                                            {album.title}
                                         </div>
                                     </div>
                                 </div>

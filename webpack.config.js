@@ -21,6 +21,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'build/[name].js',
+        publicPath: "/",
     },
 
     // module/loaders configuration
@@ -92,6 +93,9 @@ module.exports = {
 
     // development server configuration
     devServer: {
+        contentBase: path.join(__dirname, 'build'),
+        compress: true,
+        hot: true,
         port: 8088,
         historyApiFallback: true,
     },

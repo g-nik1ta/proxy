@@ -2,6 +2,7 @@
     "name": "react-ssr",
     "description": "A React server-side rendering (SSR) sample project.",
     "version": "0.1.0",
+    "homepage": ".",
     "scripts": {
         "start": "set NODE_ENV=development && webpack serve",
         "build": "set NODE_ENV=production && webpack",
