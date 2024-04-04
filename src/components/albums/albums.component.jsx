@@ -25,7 +25,7 @@ export const Albums = () => {
                 <meta name='description' content='Post seo description' />
             </Helmet>
             {albumsError &&
-                <h1>Произошла ошибка!</h1>
+                <h1 className="error-message">Произошла ошибка!</h1>
             }
             <div>
                 <h1>Вы открыли страницу альбомов пользователя с ID {id}</h1>
@@ -38,10 +38,8 @@ export const Albums = () => {
                             {albums.map((album) =>
                                 <div className="post">
                                     <div className="post__content">
-                                        <strong>{album.id}.</strong>
-                                        <div>
-                                            {album.title}
-                                        </div>
+                                        <strong className="post-title">{album.id}.</strong>
+                                        <div className="post-body">{album.title}</div>
                                     </div>
                                 </div>
                             )}

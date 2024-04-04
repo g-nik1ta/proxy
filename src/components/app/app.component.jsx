@@ -24,7 +24,7 @@ export const App = () => {
                         activeClassName='ui-app__navigation__link--active'
                         to='/'
                         exact={true}
-                    >Users</Link>
+                    >Users List</Link>
                 </div>
 
                 <Switch>

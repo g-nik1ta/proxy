@@ -25,7 +25,7 @@ export const Posts = () => {
                 <meta name='description' content='Post seo description' />
             </Helmet>
             {postsError &&
-                <h1>Произошла ошибка!</h1>
+                <h1 className="error-message">Произошла ошибка!</h1>
             }
             <div>
                 <h1>Вы открыли страницу постов пользователя с ID {id}</h1>
@@ -34,14 +34,12 @@ export const Posts = () => {
                         ?
                         <MyLoader />
                         :
-                        <div>
+                        <div className="post-list">
                             {posts.map((post) =>
                                 <div className="post">
                                     <div className="post__content">
-                                        <strong>{post.id}. {post.title}</strong>
-                                        <div>
-                                            {post.body}
-                                        </div>
+                                        <strong className="post-title">{post.id}. {post.title}</strong>
+                                        <div className="post-body">{post.body}</div>
                                     </div>
                                 </div>
                             )}

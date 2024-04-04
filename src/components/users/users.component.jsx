@@ -28,15 +28,16 @@ export const Users = () => {
     ]
 
     return (
-        <div>
+        <div className='container'>
             <Helmet>
                 <title>users seo title!</title>
                 <meta name='description' content='users seo description' />
             </Helmet>
-            <label htmlFor="search">
+            <label className="label" htmlFor="search">
                 Поиск
             </label>
             <input
+                className="input"
                 type="text"
                 id='search'
                 value={filter.query}
@@ -44,6 +45,7 @@ export const Users = () => {
                 placeholder='Поиск...'
             />
             <select
+                className="select"
                 value={filter.sort}
                 onChange={event => setFilter({ ...filter, sort: event.target.value })}
             >
@@ -64,24 +66,24 @@ export const Users = () => {
                         <MyLoader />
                     </div>
                     :
-                    <div>
+                    <div className="user-list">
                         <h1 style={{ textAlign: 'center' }}>
                             Список пользователей
                         </h1>
                         {sortedSearchUsers.map((user) =>
-                            <div className="post">
-                                <div className="post__content">
-                                    <strong>{user.id}. {user.name}</strong>
-                                    <div>
-                                        Username is: <b>{user.username}</b>
-                                    </div>
+                            <div className="user-card">
+                                <div className="user-name">
+                                    {user.id}. {user.name}
                                 </div>
-                                <div className="post__btn">
-                                    <Link to={`/user/post/${user.id}`} exact={true}>
+                                <div className='username'>
+                                    Username is: <b>{user.username}</b>
+                                </div>
+                                <div className="user-links">
+                                    <Link className="link" to={`/user/post/${user.id}`} exact={true}>
                                         Открыть список постов
                                     </Link>
                                     <br />
-                                    <Link to={`/user/albums/${user.id}`} exact={true}>
+                                    <Link className="link" to={`/user/albums/${user.id}`} exact={true}>
                                         Открыть список альбомов
                                     </Link>
                                 </div>
