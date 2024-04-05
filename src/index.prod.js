@@ -4,5 +4,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { App } from './components/app';
 import basename from '../config';
+import { HashRouter } from 'react-router-dom';
 
-ReactDOM.hydrate( <BrowserRouter basename={basename}><App/></BrowserRouter>, document.getElementById( 'app' ) );
+ReactDOM.hydrate( <HashRouter basename={basename}><App/></HashRouter>, document.getElementById( 'app' ) );
