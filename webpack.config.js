@@ -52,6 +52,7 @@ module.exports = {
             filename: 'index.html',
             template: path.resolve(__dirname, 'src/index.html'),
             minify: false,
+            publicPath: '/proxy/',
         }),
 
         // copy static files from `src` to `dist`
