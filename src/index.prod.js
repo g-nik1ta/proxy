@@ -3,5 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import { App } from './components/app';
+import basename from '../config';
 
-ReactDOM.hydrate( <BrowserRouter><App/></BrowserRouter>, document.getElementById( 'app' ) );
+ReactDOM.hydrate( <BrowserRouter basename={basename}><App/></BrowserRouter>, document.getElementById( 'app' ) );
